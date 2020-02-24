@@ -8,7 +8,7 @@ namespace DADback_end.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class DisciplinasController : ControllerBase
     {
         // GET api/values
         [HttpGet]
