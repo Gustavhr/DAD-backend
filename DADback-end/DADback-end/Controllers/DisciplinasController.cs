@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DADback_end.Model;
+using DADback_end.Services.Implementation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DADback_end.Controllers
@@ -10,36 +12,55 @@ namespace DADback_end.Controllers
     [ApiController]
     public class DisciplinasController : ControllerBase
     {
+        private IDisciplinasService _disciplinaservice;
+
+
+        public DisciplinasController(IDisciplinasService disciplinasService)
+        {
+            _disciplinaservice = disciplinasService;
+
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(_disciplinaservice.FindAll());
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public IActionResult Get(long id)
         {
-            return "value";
+            var disciplina = _disciplinaservice.Findbyid(id);
+                if (disciplina == null) return NotFound();
+            return Ok(disciplina);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Disciplinas disciplina)
         {
+          
+            if (disciplina == null) return BadRequest();
+            return new ObjectResult(_disciplinaservice.Create(disciplina));
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put([FromBody] Disciplinas disciplina)
         {
+            if (disciplina == null) return BadRequest();
+            return new ObjectResult(_disciplinaservice.Update(disciplina));
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(long id)
         {
+            _disciplinaservice.Delete(id);
+            return NoContent();
+
         }
     }
 }
