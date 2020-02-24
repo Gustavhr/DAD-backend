@@ -33,7 +33,7 @@ namespace DADback_end.Services.Implementation
             return disciplina;
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
 
             var result = _context.disciplinas.SingleOrDefault(p => p.id.Equals(id));
@@ -55,7 +55,7 @@ namespace DADback_end.Services.Implementation
             return _context.disciplinas.ToList();
         }
 
-        public Disciplinas Findbyid(long id)
+        public Disciplinas Findbyid(int id)
         {
             return _context.disciplinas.SingleOrDefault(p => p.id.Equals(id));
         }
@@ -79,7 +79,7 @@ namespace DADback_end.Services.Implementation
             return disciplina;
         }
 
-        private bool Exist(long ? id)
+        private bool Exist(int? id)
         {
             return _context.disciplinas.Any(p => p.id.Equals(id));
         }

@@ -10,13 +10,13 @@ namespace DADback_end.Services.Implementation
     {
         Disciplinas Create(Disciplinas disciplina);
 
-        Disciplinas Findbyid(long id);
+        Disciplinas Findbyid(int id);
 
         List<Disciplinas> FindAll();
 
         Disciplinas Update(Disciplinas disciplina);
 
-        void Delete(long id);
+        void Delete(int id);
 
     }
 }

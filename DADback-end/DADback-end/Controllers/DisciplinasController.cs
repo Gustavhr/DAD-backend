@@ -30,7 +30,7 @@ namespace DADback_end.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public IActionResult Get(int id)
         {
             var disciplina = _disciplinaservice.Findbyid(id);
                 if (disciplina == null) return NotFound();
@@ -56,7 +56,7 @@ namespace DADback_end.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(int id)
         {
             _disciplinaservice.Delete(id);
             return NoContent();

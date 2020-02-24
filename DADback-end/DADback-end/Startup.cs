@@ -30,7 +30,7 @@ namespace DADback_end
         {
             var connection = Configuration["MySqlConnection:MySqlConnectionString"];
 
-            services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
+            services.AddDbContext<MySqlContext>(options => options.UseSqlServer(connection));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
