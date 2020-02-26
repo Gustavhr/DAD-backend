@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DADback_end.Model.Context;
+using DADback_end.Services;
 using DADback_end.Services.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,7 @@ namespace DADback_end
 
             // Injeção de dependencia
             services.AddScoped<IDisciplinasService, DisciplinasServicesImpl>();
+            services.AddScoped<IProfessorService, ProfessorServicesImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

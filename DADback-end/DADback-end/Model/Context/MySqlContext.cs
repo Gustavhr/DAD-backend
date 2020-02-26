@@ -17,5 +17,6 @@ namespace DADback_end.Model.Context
         }
 
         public DbSet<Disciplinas> disciplinas { get; set; }
+        public DbSet<Professor> professor { get; set; }
     }
 }
